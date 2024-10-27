@@ -39,7 +39,7 @@ public class Database {
             pstmt.setString(4, operator.getAirframeName());
             pstmt.executeUpdate();
 
-            System.out.println("Operator added to database.");
+            System.out.println("\nOperator added to database.");
         } catch (SQLException e) {
             System.out.println("Failed to add operator: " + e.getMessage());
         }
@@ -104,7 +104,7 @@ public class Database {
             pstmt.setInt(4, operator.getId());
             pstmt.executeUpdate();
 
-            System.out.println("Operator updated successfully.");
+            System.out.println("\nOperator updated successfully.");
         } catch (SQLException e) {
             System.out.println("Error updating operator: " + e.getMessage());
         }
