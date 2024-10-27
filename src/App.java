@@ -19,13 +19,13 @@ public class App {
         // Menu loop
         while (!exit) {
             System.out.println(CYAN + "\n--- UAS Flight Log Menu ---" + RESET);
-            System.out.println("1. Create Operator");
-            System.out.println("2. Display All Operators");
-            System.out.println("3. Display Operator by ID");
-            System.out.println("4. Log a Flight (Update Operator)");
-            System.out.println("5. Delete Operator");
-            System.out.println("6. Exit");
-            System.out.print("Choose an option: ");
+            System.out.println(GREEN + "1. Create Operator" + RESET);
+            System.out.println(GREEN + "2. Display All Operators" + RESET);
+            System.out.println(GREEN + "3. Display Operator by ID" + RESET);
+            System.out.println(GREEN + "4. Log a Flight (Update Operator)" + RESET);
+            System.out.println(GREEN + "5. Delete Operator" + RESET);
+            System.out.println(RED + "6. Exit" + RESET);
+            System.out.print(CYAN + "Choose an option: " + RESET);
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
 
@@ -47,7 +47,7 @@ public class App {
                     break;
                 case 6:
                     exit = true;
-                    System.out.println("Exiting... Thank you!");
+                    System.out.println(CYAN + "Exiting... Thank you!" + RESET);
                     break;
                 default:
                     System.out.println(RED + "Invalid option, please try again." + RESET);
@@ -59,17 +59,17 @@ public class App {
 
     // Method to create an Operator
     private static void createOperator(Scanner scanner) {
-        System.out.print("Enter operator name: ");
+        System.out.print(GREEN + "Enter operator name: " + RESET);
         String name = scanner.nextLine();
 
-        System.out.print("Enter number of flights: ");
+        System.out.print(GREEN + "Enter number of flights: " + RESET);
         int numOfFlights = scanner.nextInt();
 
-        System.out.print("Enter total hours: ");
+        System.out.print(GREEN + "Enter total hours: " + RESET);
         double hours = scanner.nextDouble();
         scanner.nextLine(); // Consume newline
 
-        System.out.print("Enter Airframe/Aircraft: ");
+        System.out.print(GREEN + "Enter Airframe/Aircraft: " + RESET);
         String airframeName = scanner.nextLine();
 
         // Automatically handle ID generation by SQLite (using autoincrement)
@@ -81,7 +81,7 @@ public class App {
 
     // Method to delete an operator
     private static void deleteOperator(Scanner scanner) {
-        System.out.print("Enter operator ID to delete: ");
+        System.out.print(CYAN + "Enter operator ID to delete: " + RESET);
         int id = scanner.nextInt();
         scanner.nextLine(); // Consume newline
 
@@ -107,7 +107,7 @@ public class App {
 
     // Method to display an Operator by ID, including hours and airframe
     private static void displayOperatorById(Scanner scanner) {
-        System.out.print("Enter operator ID: ");
+        System.out.print(GREEN + "Enter operator ID: " + RESET);
         int id = scanner.nextInt();
 
         Operator operator = Database.findOperatorById(id); // Query from database
@@ -121,17 +121,17 @@ public class App {
 
     // Method to log a flight for an operator
     private static void logFlight(Scanner scanner) {
-        System.out.print("Enter operator ID to log a flight: ");
+        System.out.print(GREEN + "Enter operator ID to log a flight: " + RESET);
         int id = scanner.nextInt();
         scanner.nextLine(); // Consume newline
 
         Operator operator = Database.findOperatorById(id);
         if (operator != null) {
-            System.out.print("Enter additional flight hours: ");
+            System.out.print(GREEN + "Enter additional flight hours: " + RESET);
             double additionalHours = scanner.nextDouble();
             scanner.nextLine(); // Consume newline
 
-            System.out.print("Enter airframe used for this flight: ");
+            System.out.print(GREEN + "Enter airframe used for this flight: " + RESET);
             String airframe = scanner.nextLine();
 
             operator.setHours(operator.getHours() + additionalHours); // Add to existing hours
