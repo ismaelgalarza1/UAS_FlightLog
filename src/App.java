@@ -98,7 +98,7 @@ public class App {
         if (operators.isEmpty()) {
             System.out.println(RED + "\nNo operators found." + RESET);
         } else {
-            System.out.println(CYAN + "\n--- List of Operators ---" + RESET);
+            System.out.println(CYAN + "\n--- List of Operators ---\n" + RESET);
             for (Operator operator : operators) {
                 System.out.println(operator);
             }

@@ -57,7 +57,7 @@ public class Operator {
 
     @Override
     public String toString() {
-        return "Operator ID: " + id + "\nName: " + name + "\nFlights: " + numOfFlights +
-                "\nTotal Hours: " + (hours != null ? hours : "Not set") + "\nAirframe: " + airframeName;
+        return "Operator ID: " + id + " Name: " + name + " Flights: " + numOfFlights +
+                " Total Hours: " + (hours != null ? hours : "Not set") + " Airframe: " + airframeName + "\n";
     }
 }

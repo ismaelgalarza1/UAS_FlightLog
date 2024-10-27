@@ -3,7 +3,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
+
     private static final String DB_URL = "jdbc:sqlite:uas_flight_log.db";
+    // ANSI escape codes for color
+    public static final String RESET = "\u001B[0m";
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String CYAN = "\u001B[36m";
 
     // Initialize database connection and create tables
     public static void initializeDatabase() {
@@ -39,7 +45,7 @@ public class Database {
             pstmt.setString(4, operator.getAirframeName());
             pstmt.executeUpdate();
 
-            System.out.println("\nOperator added to database.");
+            System.out.println(CYAN + "\nOperator added to database." + RESET);
         } catch (SQLException e) {
             System.out.println("Failed to add operator: " + e.getMessage());
         }
